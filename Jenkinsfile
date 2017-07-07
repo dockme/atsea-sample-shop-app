@@ -4,10 +4,6 @@ node {
        stage('Checkout') {
           checkout scm
        }
-
-       stage('Build Docker alone') {
-            docker.build('eu.gcr.io/dockme-666/atseaapp', '-f app/Dockerfile .')
-       }
        
        stage('Push') {
             echo $MY_CREDENTIALS
@@ -16,4 +12,8 @@ node {
             }
        }
        
+       stage('Build Docker alone') {
+            docker.build('eu.gcr.io/dockme-666/atseaapp', '-f app/Dockerfile .')
+       }
+
 }
