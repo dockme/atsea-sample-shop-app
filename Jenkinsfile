@@ -6,7 +6,8 @@ node {
        }
 
        stage('Push') {
-            docker.withRegistry('https://eu.gcr.io/','dockme-666') { docker.image('atseaapp').push('latest') }
+            echo My Credentials are $MY_CREDENTIALS
+            docker.withRegistry('https://eu.gcr.io/','gcr:dockme-666') { docker.image('atseaapp').push('latest') }
        }
        
        stage('Build Docker alone') {
