@@ -2,7 +2,7 @@
 node {
        stage('Build Docker'){
 
-            cat ./app/Dockerfile
+            sh 'cat ./app/Dockerfile'
        }
         
        stage('Deploy'){
