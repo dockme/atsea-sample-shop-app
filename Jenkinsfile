@@ -1,6 +1,15 @@
 // This shows a simple build wrapper example, using the AnsiColor plugin.
 node {
-        stage('Build') {     // This displays colors using the 'xterm' ansi color map.
-            echo "HOLA!"
-            }
+       stage('Build Docker'){
+
+            cat ./app/Dockerfile
+       }
+        
+       stage('Deploy'){
+
+         echo 'Push to Repo'
+
+         echo 'ssh to web server and tell it to pull new image'
+
+       }        
 }
