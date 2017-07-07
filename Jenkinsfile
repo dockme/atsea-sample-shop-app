@@ -8,9 +8,10 @@ node {
        stage('Build Docker'){
             guay = "guay5"
             def app = docker.build('eu.gcr.io/dockme-666/atseaapp', '-f app/Dockerfile .')
-            docker.withRegistry('https://eu.gcr.io/','dockme-666') {
-                       docker.image('eu.gcr.io/dockme-666/atseaapp').push('latest') 
             }
-       }
+       stage('Push') {
+            docker.withRegistry('https://eu.gcr.io/','dockme-666') {
+                   docker.image('eu.gcr.io/dockme-666/atseaapp').push('latest') }
+            }
         
 }
