@@ -6,15 +6,18 @@ node {
           checkout scm
        }       
        stage('Build Docker'){
-
-            sh 'cat ./app/Dockerfile'
+            guay = "guay"
+            def app = docker.build('eu.gcr.io/dockme-666/atseaapp', '-f app/Dockerfile .')
+            docker.withRegistry('https://eu.gcr.io/','dockme-666') {
+                   app.push guay
+            }
        }
         
-       stage('Deploy'){
+       stage('Push'){
 
          echo 'Push to Repo'
+         
 
-         echo 'ssh to web server and tell it to pull new image'
 
        }        
 }
