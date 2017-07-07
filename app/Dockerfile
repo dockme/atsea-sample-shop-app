@@ -8,7 +8,7 @@ FROM maven:latest AS appserver
 WORKDIR /usr/src/atsea
 COPY app/pom.xml .
 RUN mvn -B -f pom.xml -s /usr/share/maven/ref/settings-docker.xml dependency:resolve
-COPY . .
+COPY app .
 RUN mvn -B -s /usr/share/maven/ref/settings-docker.xml package -DskipTests
 
 FROM java:8-jdk-alpine
