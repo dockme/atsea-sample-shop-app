@@ -6,7 +6,7 @@ node {
           checkout scm
        }       
        stage('Build Docker'){
-            guay = "guay4"
+            guay = "guay5"
             def app = docker.build('eu.gcr.io/dockme-666/atseaapp', '-f app/Dockerfile .')
             docker.withRegistry('https://eu.gcr.io/','dockme-666') {
                    app.push guay
