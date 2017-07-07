@@ -1,5 +1,10 @@
-// This shows a simple build wrapper example, using the AnsiColor plugin.
+// Test
 node {
+       
+       stage('Checkout'){
+
+          checkout scm
+       }       
        stage('Build Docker'){
 
             sh 'cat ./app/Dockerfile'
